@@ -1,0 +1,239 @@
+Kick start learning SQL without installing any RDBMS
+Google Search for 'W3Schools Try SQL'
+or click the below link: https://share.google/69yD9ouvyY6r7ipOk
+---
+
+First, let's discuss some basics:
+# Database: 
+* A database is a structured place where data is stored in an organized way.
+
+# DBMS(Database Management System):
+* A DBMS is the software that manages that (database)data  
+* and performs operations like storing, retrieving, updating, deleting...
+
+# Data Model:
+* A data model is a logical blueprint that defines how data is structured, related, and organized in a database 
+* by specifying entities, attributes, and relationships.
+* Types of Data Models: Hierarchical Model, Entity-Relationship Model, Relational Model, Network Model.
+
+# Entities, Attributes, and Relationships:
+* In a data model, entities are the objects we store data about, like tables, views, indexes, or materialized views. * Attributes are their properties, like EID, EName, or Salary. 
+* Relationships define how entities are connected, such as one-to-one, one-to-many, many-to-one, or many-to-many.
+
+# RDBMS(Relational Database Management System):
+* RDBMS is a type of DBMS software that follows the relational data model. 
+* In RDBMS systems like MySQL or PostgreSQL, data is stored in tables with rows and columns, 
+* and these tables are connected using primary and foreign keys to maintain relationships and ensure data integrity. 
+
+# SQL:
+* A programming language for RDBMS used to perform operations on databases.
+* Stands for Structured Query Language.
+* Using SQL, we can perform operations on a database such as inserting, retrieving, updating, and deleting data.
+
+---
+
+# Select Command:
+
+* The purpose of this SQL command is to retrieve the data from the tables
+* Syntax: Select * from TableName;
+* Practical Demonstration:
+  Q: Write a query to display all the data from the Customers table
+* Retrieving specific column data from Customers table
+  Q: Write a query to display only the `CustomerName` from the Customers table
+  Q: Write a query to display `CustomerName`, `Country`, `City`, and `PostalCode` from the Customers table
+
+---
+
+# distinct keyword:
+
+* To retrieve unique values, we use distinct keyword with Select command
+* Without distinct:
+  Q: Write a query to display all `Country` values from Customers including duplicates
+* With distinct:
+  Q: Write a query to display unique `Country` values from Customers
+  Q: Write a query to display unique combinations of `Country` and `PostalCode` from Customers
+* We Observed that, Combination of Country and PostalCode should be unique
+
+---
+
+# SQL is not case sensitive:
+
+* All the below statements will work same irrespective of their case
+
+1. Select CustomerName,PostalCode from Customers;
+2. select customername,postalcode from customers;
+3. SELECT CUSTOMERNAME,POSTALCODE FROM CUSTOMERS;
+
+* Let't Check...
+
+---
+
+# Semicolon:
+
+* To end sql statements we use semicolon.
+* Mandatory in some RDBMS Software.
+* Without Semicolon
+* Why Semicolon
+* main purpose is to Separating Multiple SQL Statements 
+
+---
+
+# Where Clause:
+
+* Purpose is to filter records based on some condition
+* When we use where clause inside the select statement we will be able to filter those data using some conditions 
+* Using relational operators(=,>,<,>=,<=,<>) we write where condition
+* And for multiple conditions inside where clause we use logical operators like AND, OR
+* Practical Demonstration:
+  Q: Write a query to display all records of customers from London
+  Q: Write a query to display the customer with `CustomerID=9`
+  Q: Write a query to display `CustomerName` and `Country` of customers where the city is London
+
+---
+
+# Different Relational Operators we can use in Where Clause Condition:
+
+* Equal Operator (=)
+  Q: Write a query to display products where `Price` is 40
+* Greater Than Operator (>)
+  Q: Write a query to display products where `Price` is greater than 40
+* Less Than Operator (<)
+  Q: Write a query to display products where `Price` is less than 40
+* Greater Than Or Equal To Operator (>=)
+  Q: Write a query to display products where `Price` is greater than or equal to 40
+* Less Than Or Equal To Operator (<=)
+  Q: Write a query to display products where `Price` is less than or equal to 40
+* Not Equal To Operator (<>)
+  Q: Write a query to display products where `Price` is not 40
+
+---
+
+# Using Logical Operators (AND, OR, NOT):
+
+* Purpose: To filter the records based on Multiple Conditions
+* Different Logical Operators we can use in Where Clause Condition
+
+1. AND
+   Q: Write a query to display customers from Mexico with `CustomerID` greater than 3
+   Q: Write a query to display customers from Mexico with `CustomerID` greater than 3 and `ContactName` not equal to 'Francisco Chang'
+2. OR
+   Q: Write a query to display customers from Germany or London
+   Q: Write a query to display customers from Germany or London or `CustomerID` greater than 90
+3. NOT
+   Q: Write a query to display customers whose country is not Germany
+   Q: Write a query to display customers whose country is not Germany and city is London
+
+---
+
+# Between Operator:
+
+* Purpose is to filter records based on specified Range
+* Practical Demonstration:
+  Q: Write a query to display products with `Price` between 10 and 20
+  Q: Write a query to display products with `Price` not between 10 and 20
+  Q: Write a query to display products with `Price` less than 10 or greater than 20
+
+---
+
+# Order By Clause:
+
+* Purpose is to order the retrieved records in ascending or descending order
+* Practical Demonstration:
+  Q: Write a query to display customers by `Country` in ascending order
+* ASC is optional
+* But for descending we need to write DESC, So DESC is mandatory.
+  Q: Write a query to display customers by `Country` descending and `City` ascending
+  Q: Write a query to display products by `Price` in descending order
+
+---
+
+# Using Between Operator with Text:
+
+* BETWEEN operator is not only used with numbers and dates — it also works with text values.
+* Practical Demonstration:
+  Q: Write a query to display all the records from the Customers table
+  Q: Write a query to display all customers in ascending order
+  Q: Write a query to display customers whose Country name alphabetically falls BETWEEN ‘Canada’ and ‘Finland’
+  Q: Write a query to display customers whose Country name does NOT fall alphabetically between ‘Canada’ and ‘Finland’
+
+---
+
+# In Operator:
+
+* allows you to filter a column against multiple values in a single query, 
+* simplifying the process, instead of writing multiple OR conditions.
+* Practical Demonstration:
+  Q: Write a query to display products where `Price` is 18, 30, or 10
+  Q: Write a query to display customers whose `Country` is 'USA', 'Canada', or 'UK'
+
+---
+
+# Like Operator and Wildcard Characters:
+
+* We can use Like Operator and Wildcard Characters for Pattern matching needs
+* We can use them in the Where Clause Conditions
+* Practical Demonstration:
+  Q: Write a query to display customers whose country ends with 'a'
+  Q: Write a query to display customers whose country starts with 'F'
+  Q: Write a query to display customers whose country contains 'Can'
+  Q: Write a query to display customers whose country is exactly 2 characters
+  Q: Write a query to display customers whose country matches the pattern 'M_x_c_'
+* When we do pattern matching using wildcard characters that time instead of equal to operator 
+* we use like operator otherwise get an error
+* Wildcard characters:
+	% - multi char 
+	_ - single char
+
+---
+
+# Aliases for Table Column Names (As Keyword):
+
+* If we don’t want the original column name to display in the result, we can specify an alias name. 
+* alias is temporary, which means it does not change the original column in the table. 
+* AS keyword is optional, but it is better to use it for more readability.
+  Q: Write a query to display `CategoryID` as `ID` and `CategoryName` as `Name` in the output temporarily
+  Q: Write a query to use square brackets to alias `CategoryID` and `CategoryName`
+
+---
+
+# Limit Keyword:
+
+* When a Table has 1000's of records, the Application will slow down when trying to display them.
+* Using Limit keyword we can decide how many records needs to be displayed on the page irrespective of number of records available, thereby improving the performance
+* Practical Demonstration
+  Q: Write a query to display only 3 records from Customers
+  Q: Write a query to display 5 records from Customers where `Country` is 'USA'
+  Q: Write a query to display records 2 to 6 from Customers
+
+---
+
+# Breaking the Lengthy SQL Statement into multiple lines:
+
+* We can break the lengthy SQL statement into multiple lines for better understanding
+  Q: Write a query to display `CustomerID`, `CustomerName`, `Country`, and `City` from Customers where `Country` is 'France' using multiple lines
+
+---
+
+# Arithmetic Operators:
+
+* The below are the different Arithmetic Operators we can use in the SQL Statements:
+
+1. Addition (+)
+2. Subtraction (-)
+3. Multiplication (*)
+4. Division (/)
+5. Modulus (%)
+
+* Practical Demonstration
+  Q: Write a query to display 5 + 4
+  Q: Write a query to display 5 - 4
+  Q: Write a query to display 5 * 4
+  Q: Write a query to display 5 / 4
+  Q: Write a query to display 5 % 4
+  Q: Write a query to increase the `Price` by 10 for all products
+  Q: Write a query to decrease the `Price` by 10 for all products
+  Q: Write a query to multiply the `Price` by 10 for all products
+  Q: Write a query to divide the `Price` by 10 for all products
+  Q: Write a query to display the modulus of `Price` by 10 for all products
+
+
