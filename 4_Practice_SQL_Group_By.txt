@@ -1,0 +1,114 @@
+Let's practice:
+First we use GROUP BY to group distinct values together and perform aggregation to get a single summarized value.
+Then we use HAVING to filter that grouped/aggregated data.
+And finally, we see WHERE for performance improvement — to filter unnecessary data before we deal with GROUP BY.
+First run this to create table.
+
+---
+
+CREATE TABLE country (
+    id INT PRIMARY KEY,
+    continent VARCHAR(50),
+    name VARCHAR(100),
+    surfacearea DECIMAL(12,2)
+);
+
+INSERT INTO country (id, continent, name, surfacearea) VALUES
+(1, 'Asia', 'India', 3287263),
+(2, 'Asia', 'China', 9596961),
+(3, 'Europe', 'France', 551695),
+(4, 'Europe', 'Germany', 357386),
+(5, 'Africa', 'Egypt', 1002450),
+(6, 'Africa', 'Nigeria', 923768),
+(7, 'North America', 'USA', 9833517),
+(8, 'South America', 'Brazil', 8515767),
+(9, 'Australia', 'Australia', 7692024),
+(10, 'Antarctica', 'Antarctica', 14000000);
+
+---
+
+# Group By Clause: 
+
+- Practical Demonstration: 
+1. Write an SQL query to display all the records from the `country` table.
+2. Write a query to fetch only the `name` column from the `country` table.
+3. Write a query to count how many country names are present in the table.
+4. Write a query to count the number of countries in each continent using `GROUP BY`.
+5. Write a query to display each continent along with the count of countries belonging to it.
+
+---
+
+# Having Clause: 
+
+- Having Clause is like a Where Clause for Group By Clause 
+- In case of providing condition for Group By Clause, we have to use Having Clause 
+- Practical Demonstration:  
+1. Write an SQL query to display all the records from the `country` table.
+2. Write a query to fetch only the `name` column from the `country` table.
+3. Write a query to count how many country names are present in the table.
+4. Write a query to count the number of countries where the surface area is greater than 100.
+5. Write a query to display each continent along with the count of countries belonging to it.
+6. Write a query to display each continent along with the count of countries, but only for continents having less than 10 countries.
+
+---
+
+# Sequence of using where, group by, having and order by clauses: 
+ 
+- where > group by > having > order by 
+- Practical Demonstration: 
+1. Write a query to display each continent along with the count of countries having surface area greater than 300, 
+   but only include continents where this count is greater than 20, and order the results by the count in ascending order.
+
+---
+
+CREATE TABLE country (
+    id INT,
+    continent VARCHAR(50),
+    name VARCHAR(100),
+    surfacearea DECIMAL(12,2)
+);
+
+
+INSERT INTO country (id, continent, name, surfacearea) VALUES
+(1, 'Asia', 'India', 3287263),
+(2, 'Asia', 'China', 9596961),
+(3, 'Asia', 'india', 3287263),          -- Same name different case
+(4, 'Europe', 'France', 551695),
+(5, 'Europe', 'Germany', 357386),
+(6, 'europe', 'France', 551695),        -- Case difference
+(7, 'Africa', 'Egypt', 1002450),
+(8, 'Africa', 'Egypt', NULL),           -- NULL value
+(9, 'Africa', 'Nigeria', 923768),
+(10, 'Asia', 'Japan', 377975),
+(11, 'Asia', 'Japan', 377975),          -- exact duplicate
+(12, 'North America', 'USA', 9833517),
+(13, 'north america', 'Canada', 9984670),
+(14, 'South America', 'Brazil', 8515767),
+(15, 'South America', 'Argentina', 2780400),
+(16, 'Australia', 'Australia', 7692024),
+(17, 'Antarctica', 'Antarctica', NULL),
+(18, 'Asia', 'Bhutan', 38394),
+(19, 'Asia', 'Nepal', 147516),
+(20, 'Asia', 'China', 9596961);         -- duplicate again
+
+---
+
+# Scenario-based interview questions:
+
+1. Write a query to find all country names that appear more than once within the same continent.
+2. Retrieve all continents whose total surface area is greater than 20 million, ignoring rows where surface area is NULL.
+3. Identify all continents that contain at least one country with a NULL surface area.
+4. Return all continents that have more than 3 countries recorded in the table.
+5. Group continents ignoring case (Asia and asia should be treated the same) and return only those that have more than 4 rows.
+6. Find all country names whose total surface area, after combining duplicate names, is greater than 1 million.
+7. Retrieve all continents whose average surface area is greater than 2 million. NULL values should not be included in the calculation.
+8. List all country names that appear under more than one continent.
+9. Return all continents where the smallest surface area among all countries is below 50,000.
+10. Identify continents for which the maximum surface area and minimum surface area are the same.
+11. Retrieve all continents that contain more than one country with NULL surface area.
+12. Return continents where a single country contributes more than 50% of that continent’s total surface area.
+13. List all countries whose surface area is below 100,000, but only consider continents that have more than 3 countries.
+14. Find all continents where the difference between the maximum and minimum surface area is greater than 5 million.
+15. Return continents where the sum of all surface areas does not match the sum of DISTINCT surface areas.
+
+
