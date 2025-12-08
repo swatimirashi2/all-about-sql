@@ -116,6 +116,8 @@ Q. Write query to insert a record (2, 'Varun', 5) into the `employees` table.
 Q. Write query to insert a record (3, 'Tharun', 7) into the `employees` table.
 Q. Write query to update the name of the employee whose id is 3 to 'Kiran'.
 Q. Write query to update the name to 'Tharun' and id to 4 for the employee whose experience is 5.
+Q. Write query to update the name to 'ram' for employee whose id is 1 and experience is 12.
+- Rule to remember: SET → use commas | WHERE → use AND/OR
 
 ---
 
@@ -229,6 +231,7 @@ select * from employees;
 show tables; 
 
  
+
 
 
 
