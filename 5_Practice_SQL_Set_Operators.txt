@@ -1,0 +1,98 @@
+Let's practice: Set Operators
+We can retrieve the data from different tables at a time using the Set Operators 
+Syntax: Select * from TableOne Set Operator Select * from TableTwo; 
+	1. UNION → combine results and remove duplicates
+	2. UNION ALL → combine results and keep duplicates
+	3. INTERSECT → get only the common rows
+	4. EXCEPT / MINUS → get rows from the first query that are not in the second
+Tip: Each query must have the same number of columns with compatible data types.
+ 
+---
+
+# Union Operator:
+ 
+- Union Operator in one of the Operators in the four Set Operators 
+- Purpose of Union Operator: 
+- Practical Demonstration: 
+create table empone(id int); 
+insert into empone values(1); 
+insert into empone values(3); 
+insert into empone values(5); 
+select * from empone; 
+create table emptwo(num int); 
+insert into emptwo values(2); 
+insert into emptwo values(3); 
+insert into emptwo values(4); 
+select * from emptwo; 
+select * from empone union select * from emptwo;  
+- Combination of column records will be considered for comparison and elimination of duplicates 
+- Rules: 
+	1. Select statements of each table must retrieve the same number of columns 
+	2. Columns provided in the select statements should have the similar data type to work properly 
+	3. The order of the columns provided in the select statements should be same to work properly
+
+---
+
+# Union All Operator: 
+
+- Union All Operator is one of the Set Operators 
+- Unlike Union Operator, Union All won't eliminate the duplicates 
+- Practical Demonstration: 
+create table tone(id int); 
+insert into tone values(1); 
+insert into tone values(3); 
+insert into tone values(5); 
+select * from tone; 
+create table ttwo(num int); 
+insert into ttwo(2); 
+insert into ttwo(3); 
+insert into ttwo(4); 
+select * from ttwo; 
+select id from tone union all select num from ttwo;
+
+---
+
+# Intersect Operator:
+ 
+- Intersect Operator is one of the Set Operators 
+- Intersect Operator will retrieve the common records from the given tables 
+- Intersect Operator is not supported by MySQL RDBMS 
+- We have to use Oracle SQL RDMBS 
+- Google search for 'Try Oracle SQL Online Practice' 
+- Practical Demonstration: 
+create table tone(id int); 
+insert into tone values(1); 
+insert into tone values(3); 
+insert into tone values(5); 
+select * from tone; 
+create table ttwo(num int); 
+insert into ttwo(2); 
+insert into ttwo(3); 
+insert into ttwo(4); 
+select * from ttwo; 
+select id from tone intersect select num from ttwo;
+
+---
+
+# Minus Operator:
+ 
+- Minus Operator is one of the Set Operators 
+- Minus Operator will retrieve the records in the first table and that are not available in the second table 
+- Minus Operator is not supported by MySQL RDBMS 
+- We have to use Oracle SQL RDMBS 
+- Google search for 'Try Oracle SQL Online Practice' 
+- Practical Demonstration:  
+create table tone(id int); 
+insert into tone values(1); 
+insert into tone values(3); 
+insert into tone values(5); 
+select * from tone; 
+create table ttwo(num int); 
+insert into ttwo(2); 
+insert into ttwo(3); 
+insert into ttwo(4); 
+select * from ttwo; 
+select id from tone minus select num from ttwo; 
+select id from two minus select num from tone;
+
+
