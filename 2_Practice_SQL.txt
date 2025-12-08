@@ -8,7 +8,7 @@ to gain exposure to enterprise-grade relational database systems.
 # Creating, Deleting, viewing and using Databases:
 
 - Practical Demonstration:
-- Show Databases;
+- View existing databases.
 - Create Database db_name;
 - Refresh to see the Database Reflected
 - Observe that the DB will be created without any below objects:
@@ -18,9 +18,7 @@ to gain exposure to enterprise-grade relational database systems.
 - Drop Database db_name;
 - Refresh to see the Database deleted
 - Create Database db_name;
-- Right-click on database click on query tool
 - Table is an object of a Database
-- Now create table object inside database
 - Syntax:
 CREATE TABLE table_name (
     column1 datatype(size) constraint,
@@ -28,15 +26,15 @@ CREATE TABLE table_name (
     column3 datatype(size) constraint,
     ...
 );
-- show tables;
+- view existing tables
 Q. Write an SQL query to create a table named employees with the following columns:
 	EmpID (int)
 	EmpName (varchar(50))
 	Department (varchar(30))
 	Salary (int)
 	Experience (int)	
-- Describe Employees;
-- Write query to retrieve employees table.
+- write query to display description of `employees` table.
+- Write query to retrieve `employees` table.
 Q. Write an SQL statement to create a new table named `Emp` by copying only the `id` and `name` columns from the existing `employees` table.
 - drop table Emp;
 
@@ -234,5 +232,6 @@ select * from employees;
 show tables; 
 
  
+
 
 
