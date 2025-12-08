@@ -48,7 +48,6 @@ Q. Write query to describe the structure of the employees table.
 Q. Write query to insert single record (1, 'Arun', 12) into the employees table.
 Q. Write query to insert two record (2, 'Varun', 5) and (3, 'Tharun', 7) into the employees table.
 Q. Write query to insert the record (4, 'Alice') without providing the third column — observe what happens.
-Q. Write query to insert only id and name for employee 4 so that the missing column gets NULL.
 - Null value will be inserted in place of the non-inserted column if there is no integrity constraint applied on that column.
 
 ---
@@ -232,6 +231,7 @@ select * from employees;
 show tables; 
 
  
+
 
 
 
