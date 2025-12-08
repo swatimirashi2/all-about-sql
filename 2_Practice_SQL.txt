@@ -30,8 +30,6 @@ CREATE TABLE table_name (
 Q. Write an SQL query to create a table named employees with the following columns:
 	EmpID (int)
 	EmpName (varchar(50))
-	Department (varchar(30))
-	Salary (int)
 	Experience (int)	
 - write query to display description of `employees` table.
 - Write query to retrieve `employees` table.
@@ -231,6 +229,7 @@ select * from employees;
 show tables; 
 
  
+
 
 
 
