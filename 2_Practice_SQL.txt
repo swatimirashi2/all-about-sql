@@ -1,0 +1,238 @@
+Starting to work on an actual DBMS..., 
+I initially practiced these SQL concepts in MySQL 
+and am now transitioning to PostgreSQL 
+to gain exposure to enterprise-grade relational database systems.
+
+---
+
+# Creating, Deleting, viewing and using Databases:
+
+- Practical Demonstration:
+- Show Databases;
+- Create Database db_name;
+- Refresh to see the Database Reflected
+- Observe that the DB will be created without any below objects:
+ 	1. Tables
+ 	2. Views
+ 	3. Stored Procedures
+- Drop Database db_name;
+- Refresh to see the Database deleted
+- Create Database db_name;
+- Right-click on database click on query tool
+- Table is an object of a Database
+- Now create table object inside database
+- Syntax:
+CREATE TABLE table_name (
+    column1 datatype(size) constraint,
+    column2 datatype(size) constraint,
+    column3 datatype(size) constraint,
+    ...
+);
+- show tables;
+Q. Write an SQL query to create a table named employees with the following columns:
+	EmpID (int)
+	EmpName (varchar(50))
+	Department (varchar(30))
+	Salary (int)
+	Experience (int)	
+- Describe Employees;
+- Write query to retrieve employees table.
+Q. Write an SQL statement to create a new table named `Emp` by copying only the `id` and `name` columns from the existing `employees` table.
+- drop table Emp;
+
+---
+
+# Insert Into Statements (For inserting data into Tables): 
+
+- Practical Demonstration: 
+Q. Write query to show all the tables from the current database.
+Q. Write query to describe the structure of the employees table.
+Q. Write query to insert single record (1, 'Arun', 12) into the employees table.
+Q. Write query to insert two record (2, 'Varun', 5) and (3, 'Tharun', 7) into the employees table.
+Q. Write query to insert the record (4, 'Alice') without providing the third column — observe what happens.
+Q. Write query to insert only id and name for employee 4 so that the missing column gets NULL.
+- Null value will be inserted in place of the non-inserted column if there is no integrity constraint applied on that column.
+
+---
+
+# Data Types:
+ 
+- Every column in a Table has a Name and a data type 
+- While creating a table, we have to decide the name and type for each and every column 
+- Type of the Column decides the data that is expected in the specified table 
+
+- Different types of data types: 
+1. Numeric Data Types
+	INT → whole numbers
+	BIGINT → very large whole numbers
+	SMALLINT → small range numbers
+	FLOAT → decimal numbers (approximate)
+	DOUBLE → larger decimal numbers
+	DECIMAL(p,s) → exact decimal values (used in money calculations)
+
+2. String / Character Data Types
+	CHAR(n) → fixed-length string
+	VARCHAR(n) → variable-length string(most used)
+	TEXT → large text data
+
+3. Date & Time  Data Types
+	DATE → only date (YYYY-MM-DD)
+	TIME → only time (HH:MM:SS)
+	DATETIME → date + time
+	TIMESTAMP → date + time (with automatic update features)
+
+ 5. Boolean Type
+	BOOLEAN / BOOL → TRUE or FALSE
+
+---
+
+# Null Value, Is Null Operator and Is Not Null Operator:
+
+- Practical Demonstration: 
+- insert into Employees values(5,'Kiran'); -> Error 
+- insert into Employees(id,name) values(5,'Kiran'); 
+- select * from employees; 
+- Write query to display all employees whose experience is NULL.
+- Write query to display all employees whose experience is NOT NULL.
+- Remember, we cannot use the assignment operator (=) with NULL; we must use IS NULL or IS NOT NULL.
+- Because SQL does not compare NULL using =.
+- NULL = NULL is never true — it returns UNKNOWN.
+- So the condition fails for every row → result becomes empty.
+
+---
+
+# Delete Statement (For Deleting the Records from Table): 
+
+- Practical Demonstration: 
+Q. Write query to delete the employee whose id is 5.
+Q. Write query to delete the employee whose name is 'Tharun'.
+- Let's run: delete from employees;
+- All rows will be deleted from the employees table.
+- The table becomes empty, but the table structure remains.
+
+---
+
+# Update Statement and Set Keyword (For Updating the Table Records): 
+
+- Practical Demonstration: 
+Q. Drop n create employees table again
+Q. Write query to insert a record (1, 'Arun', 12) into the `employees` table.
+Q. Write query to insert a record (2, 'Varun', 5) into the `employees` table.
+Q. Write query to insert a record (3, 'Tharun', 7) into the `employees` table.
+Q. Write query to update the name of the employee whose id is 3 to 'Kiran'.
+Q. Write query to update the name to 'Tharun' and id to 4 for the employee whose experience is 5.
+
+---
+
+# Rename Statement and To keyword (For Renaming Table Name): 
+
+Practical Demonstration:  
+Q. Write query to rename the table `employees` to `emp`.
+Q. Write query to rename the table `emp` back to `employees`.
+- for temporary table name we use alias method
+
+---
+
+# Alter Statement, `ADD`, `MODIFY COLUMN`, `RENAME COLUMN` and `DROP COLUMN` Keywords: 
+
+- Practical Demonstration:  
+
+- Check if needed: describe employees;
+Q. Write query to add a new column `location` of type VARCHAR(15) to the `employees` table.
+Q. Write query to modify the `location` column in the `employees` table to VARCHAR(20).
+Q. Write query to rename the column `location` to `loc` in the `employees` table.
+Q. Write query to drop the column `loc` from the `employees` table.
+
+---
+
+# Set Autocommit: 
+
+- Practical Demonstration: 
+insert into employees values(9,'Dinesh',3); 
+Select * from employees; 
+Restart the workbench client and observe that the inserted data is stored  
+Select * from employees; 
+set autocommit=0; 
+insert into employees values(11,'Isha',6); 
+Select * from employees; 
+Restart the workbench client and observe that the inserted data is not stored  
+Select * from employees; 
+set autocommit=1; 
+insert into employees values(11,'Isha',6); 
+Select * from employees; 
+Restart the workbench client and observe that the inserted data is stored 
+Select * from employees;
+
+---
+
+# Commit Statement:
+ 
+- Practical Demonstration: 
+set autocommit=0; 
+Select * from employees; 
+insert into employees values(9,'Dinesh',3); 
+Select * from employees; 
+Restart the workbench client and observe that the inserted data is not permanently 
+stored 
+Select * from employees; 
+insert into employees values(9,'Dinesh',3); 
+commit; 
+Select * from employees; 
+Restart the workbench client and observe that the inserted data is stored permanently 
+use qafox; 
+Select * from employees; 
+set autocommit=1;
+
+---
+
+# Rollback Statement:
+ 
+- Practical Demonstration: 
+set autocommit=0; 
+Select * from employees; 
+delete from employees; 
+Select * from employees; 
+rollback; 
+delete from employees; 
+commit; 
+rollback; 
+set autocommit=1;
+
+---
+
+# Truncate Statement:
+ 
+- Practical Demonstration:
+ 
+insert into employees values(1,'Arun',12); 
+commit; 
+set autocommit=0; 
+delete from employees; 
+rollback; 
+Select * from employees; 
+truncate table employees; 
+rollback; 
+Select * from employees; 
+set autocommit=1;
+
+--- 
+
+# Single Line and Multi-Line Comments:
+ 
+- Comments are the Statements which won't be executed like general SQL statements 
+- Can be used for any of the below reasons: 
+	1. To explain the underlying statements to make it understandable 
+	2. To hide the statement from execution 
+- Types of Comments in SQL: 
+	1. Single Line Comments 
+	2. Multi-Line Comments 
+- Practical Demonstration: 
+1. -- The below SQL statement is used to retrieve data from sql 
+select * from employees;
+3. /* The below SQL statements are used for finding the list of tables in the 
+   database and to retrieve the records from the specified table */ 
+show tables; 
+
+ 
+
+
